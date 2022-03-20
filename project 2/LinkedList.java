@@ -57,10 +57,72 @@ public class LinkedList {
                 // new head val
                 head = new node<T>(data);
 
-                
+                // new head node points to old head node
                 head.next = temp;
 
                 return;
+            }
+
+            // temp node for transversal
+            node<T> temp = head;
+            
+            //dummy node with null that stores prev node
+            node<T> prev = new node<T>(null);
+
+            // iterating to given position
+            while (position - 1 > 0){
+                // assigning prev node
+                prev = temp;
+                //incr to next node
+                temp = temp.next;
+                // decresing the position
+                position--;
+            }
+            //prev node noew points to new val
+            prev.next = new node<T>(data);
+            // new val points to former cur val
+            prev.next.next = temp;
+        }
+
+        // func to remove a node from the LL
+        void remove(T key){
+            node<T> prev = new node<>(null);
+
+            // dummy node that points to head node
+            prev.next = head;
+
+            // node that points to node ahead of head
+            node<T> next = head.next;
+
+            // temp node for head
+            node<T> temp = head;
+
+            boolean exist = false;
+
+            //if head node needs to be deleted
+            if (head.data ==key ){
+                // head will point to node after head
+                head = head.next;
+                exist = true;
+            }
+
+            while (temp.next != null){
+                if (String.valueOf(temp.data).equals(String.valueOf(key))){
+                    // if node is found, prev node points to 
+                    // next node, skipping curr node
+                    prev.next = next;
+
+                    exist = true;
+                }
+
+                // if the node is deleted, decrease length
+                if (exist){
+                    length--;
+                }
+                // error msg if val is not on LL
+                else{
+                    System.out.println("Value given is not on Linked list");
+                }
             }
         }
 
