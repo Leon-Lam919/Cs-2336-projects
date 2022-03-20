@@ -4,7 +4,6 @@ public class Main {
         Expression a  = new Expression();
         a.toString();
 
-        list<Integer> list1 = new list<>();
     }
     
     
