@@ -1,4 +1,5 @@
 public class LinkedList {
+//TODO: figure out if the linked list works and make sure all the fucntions work within it
     class node<T>{
         T data;
         node<T> next;
