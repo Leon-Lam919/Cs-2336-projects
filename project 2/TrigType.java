@@ -6,12 +6,12 @@ enum TrigSigns {
 }
 
     public class TrigType{
-    //TODO: make sure that this eumeration class works with everything else 
+    //TODO: link this enum to the TrigTerm class and make sure that it works
         public static void main(String[] args) {
 
             TrigSigns C = TrigSigns.COSINE;
+            TrigSigns S = TrigSigns.SIN;
 
-            System.out.println(C);
         }
     }
     
