@@ -1,6 +1,10 @@
 public class LinearTerm extends ConstantTerm{
-    public static void main(String[] args) {
-        System.out.println(1);    
-    }
-    
+   
+    public LinearTerm(){
+
+   }
+
+   public static LinearTerm linearTerm(int x){
+       return null;
+   }
 }
