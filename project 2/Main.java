@@ -5,6 +5,10 @@ public class Main {
         a.toString();
         System.out.println("test");
 
+        TrigSigns C = TrigSigns.COSINE;
+
+        System.out.println(C);
+
     }
     
     

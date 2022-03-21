@@ -1,21 +1,17 @@
 
 
-enum TrigType {
+enum TrigSigns {
 
-    COSINE("COSINE"), SIN("SIN");
-
-    private final String type;
-
-    private TrigType(String type){
-        this.type = type;
-    }
-    public String getType(){return type;}
+    COSINE, SIN;
 }
 
+    public class TrigType{
+    //TODO: make sure that this eumeration class works with everything else 
+        public static void main(String[] args) {
 
-//TODO: make sure that this eumeration class works with everything else 
-class TrigSwitch{
-    public static void main(String[] args) {
-        TrigType t;
+            TrigSigns C = TrigSigns.COSINE;
+
+            System.out.println(C);
+        }
     }
-}
+    
