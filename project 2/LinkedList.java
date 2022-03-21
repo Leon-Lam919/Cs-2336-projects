@@ -11,7 +11,7 @@ public class LinkedList {
         }
     }
 
-    class list<T>{
+    public class list<T>{
         node<T> head;
 
         // length of list
@@ -128,5 +128,9 @@ public class LinkedList {
             }
         }
 
+    }
+
+    public static void main(String[] args) {
+        
     }
 }
