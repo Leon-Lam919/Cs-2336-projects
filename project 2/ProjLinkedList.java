@@ -1,4 +1,4 @@
-public class LinkedList {
+public class ProjLinkedList {
 //TODO: figure out if the linked list works and make sure all the fucntions work within it
 // TODO: currrently does not work with other classes and cannot be called from main
     class node<T>{
