@@ -5,7 +5,7 @@ public class Main {
         a.toString();
         System.out.println("test");
 
-        TrigSigns C = TrigSigns.COSINE;
+        TrigType x = TrigType.COSINE;
 
         ITerm t1 = new LinearTerm();
     }

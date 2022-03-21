@@ -1,16 +1,17 @@
 
 
-enum TrigSigns {
+enum TrigType {
 
-    COSINE, SIN;
+    COSINE, SINE;
 }
 
-    public class TrigType{
+    class trig{
     //TODO: link this enum to the TrigTerm class and make sure that it works
         public static void main(String[] args) {
 
-            TrigSigns C = TrigSigns.COSINE;
-            TrigSigns S = TrigSigns.SIN;
+            TrigType x = TrigType.COSINE;
+            TrigType y = TrigType.SINE;
+
 
         }
     }
