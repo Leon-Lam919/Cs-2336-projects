@@ -7,10 +7,14 @@ public class Main {
 
         TrigType x = TrigType.COSINE;
 
+        // TODO: needs to be instaniated with ITerm, not the sub class itself, 
+        // TODO: then that needs to be able to be calculated and changed
+    
+        // declaring an instance of the LinearTerm class
         LinearTerm lin = new LinearTerm();
-
+        // passing an int to a method inside the LinearTerm class 
         String t1 = lin.linearTerm(9);
-
+        // prints out the number passed with an "x" after
         System.out.println(t1);
     }
     

@@ -1,6 +1,8 @@
 public class ProjLinkedList {
-//TODO: figure out if the linked list works and make sure all the fucntions work within it
+// TODO: figure out if the linked list works and make sure all the fucntions work within it
 // TODO: currrently does not work with other classes and cannot be called from main
+    
+    // node class that creates a node
     class node<T>{
         T data;
         node<T> next;
@@ -11,7 +13,10 @@ public class ProjLinkedList {
         }
     }
 
+    // TODO: needs to work inside the Expression class
+    // list class that defines the entire list
     public class list<T>{
+        // delcaring head node
         node<T> head;
 
         // length of list
