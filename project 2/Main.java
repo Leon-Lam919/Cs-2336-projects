@@ -17,9 +17,7 @@ public class Main {
         // prints out the number passed with an "x" after
         System.out.println(t1);
 
-        // github test line
-
-        // test line from mac to PC
+        
     }
     
     
