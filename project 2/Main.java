@@ -17,6 +17,9 @@ public class Main {
         // prints out the number passed with an "x" after
         System.out.println(t1);
 
+        ITerm term = new LinearTerm(6);
+
+        System.out.println(term);
         
     }
     
