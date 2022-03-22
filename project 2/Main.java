@@ -7,7 +7,11 @@ public class Main {
 
         TrigType x = TrigType.COSINE;
 
-        ITerm t1 = new LinearTerm();
+        LinearTerm lin = new LinearTerm();
+
+        String t1 = lin.linearTerm(9);
+
+        System.out.println(t1);
     }
     
     

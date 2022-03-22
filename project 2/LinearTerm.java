@@ -1,13 +1,11 @@
 public class LinearTerm extends ConstantTerm{
    
-    public LinearTerm(){
+    // construtor method
+    public LinearTerm(){}
 
-   }
-
-   public static LinearTerm linearTerm(int x){
+    public String linearTerm(int x){
        String xVal = "x";
-       LinearTerm a = new LinearTerm();
-        
-       return a;
+
+       return x + xVal;
    }
 }
