@@ -16,6 +16,8 @@ public class Main {
         String t1 = lin.linearTerm(9);
         // prints out the number passed with an "x" after
         System.out.println(t1);
+
+        // github test line
     }
     
     
