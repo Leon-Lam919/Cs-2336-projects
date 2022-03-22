@@ -13,11 +13,13 @@ public class Main {
         // declaring an instance of the LinearTerm class
         LinearTerm lin = new LinearTerm();
         // passing an int to a method inside the LinearTerm class 
-        String t1 = lin.linearTerm(9);
+        String t1 = lin.linearTerm(9912);
         // prints out the number passed with an "x" after
         System.out.println(t1);
 
-        ITerm term = new LinearTerm(6);
+        ITerm term = new LinearTerm();
+
+        term.evaluate(9.231);
 
         System.out.println(term);
         

@@ -1,9 +1,7 @@
-public class LinearTerm implements ITerm{
+public class LinearTerm extends ConstantTerm{
    
     // construtor method
     public LinearTerm(){}
-
-    public LinearTerm(int x){}
 
     // method that takes in the int and returns the int with "x" afterwards
     // TODO: needs to be called from ITerm and not from here when called, dont know how to solve yet
@@ -23,6 +21,6 @@ public class LinearTerm implements ITerm{
     @Override
     public double evaluate(double expression) {
         // TODO: evaluate the number with the value given
-        return 0;
+        return 91;
     }
 }
