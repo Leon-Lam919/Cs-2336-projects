@@ -5,6 +5,9 @@ public class LinearTerm extends ConstantTerm{
    }
 
    public static LinearTerm linearTerm(int x){
-       return null;
+       String xVal = "x";
+       LinearTerm a = new LinearTerm();
+        
+       return a;
    }
 }

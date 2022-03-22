@@ -11,8 +11,7 @@ enum TrigType {
 
             TrigType x = TrigType.COSINE;
             TrigType y = TrigType.SINE;
-
-
+            
         }
     }
     
