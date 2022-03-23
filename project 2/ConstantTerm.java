@@ -1,5 +1,4 @@
 class ConstantTerm implements ITerm{
-    ConstantTerm ConstantTerm;
 
     @Override
     public ITerm derivative() {

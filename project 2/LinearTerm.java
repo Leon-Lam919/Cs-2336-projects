@@ -11,16 +11,16 @@ public class LinearTerm extends ConstantTerm{
        return x + xVal;
    }
 
-    @Override
+    
     public ITerm derivative() {
         // TODO derive the linear term to a constant
         // TODO: return a value of ITerm type
         return null;
     }
 
-    @Override
     public double evaluate(double expression) {
         // TODO: evaluate the number with the value given
-        return 91;
+        
+        return 91.0;
     }
 }

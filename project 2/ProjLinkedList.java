@@ -128,5 +128,18 @@ public class ProjLinkedList<T> {
             }
         }
 
+        public void display(){
+            node<T> current = head;
+
+            if (head == null){
+                System.out.println("List is empty");
+            }
+
+            while(current != null){
+                System.out.println(current.data);
+                current = current.next;
+            }
+        }
+
 
 }

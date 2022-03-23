@@ -17,18 +17,17 @@ public class Main {
         // prints out the number passed with an "x" after
         System.out.println(t1);
 
+        // instantiating 
         ITerm term = new LinearTerm();
 
-        term.evaluate(9.231);
 
-        System.out.println(term);
+        System.out.println(term.evaluate(1));
 
         ProjLinkedList<Integer> LL = new ProjLinkedList<>();
         
         LL.add(3);
 
-        System.out.println(LL);
-        
+        LL.display();        
     }
     
     
