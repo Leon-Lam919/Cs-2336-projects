@@ -13,19 +13,14 @@ public class ProjLinkedList<T> {
         }
     }
 
-    // TODO: needs to work inside the Expression class
+    // TODO: needs to work inside the Expression class (complete)
     // list class that defines the entire list
-    public class list<T>{
+
         // delcaring head node
         node<T> head;
 
         // length of list
         private int length = 0;
-
-        // default constructor for list
-        list(){
-            this.head=null;
-        }
 
         // method to add data to end of the linked list
         void add(T data){
@@ -132,10 +127,4 @@ public class ProjLinkedList<T> {
                 }
             }
         }
-
-    }
-
-    public static void main(String[] args) {
-        
-    }
 }

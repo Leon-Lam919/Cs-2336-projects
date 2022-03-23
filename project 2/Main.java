@@ -22,6 +22,12 @@ public class Main {
         term.evaluate(9.231);
 
         System.out.println(term);
+
+        ProjLinkedList<Integer> LL = new ProjLinkedList<>();
+        
+        LL.add(3);
+
+        System.out.println(LL);
         
     }
     
