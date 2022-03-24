@@ -12,10 +12,14 @@ public class LinearTerm extends ConstantTerm{
     // TODO: needs to be called from ITerm and not from here when called, dont know how to solve yet
     public String linearTerm(int x){
        String xVal = "x";
+        setX(x);
 
-       setX(x);
-
-       return x + xVal;
+       if (x < 0){
+           return "- " + -1*x + xVal;
+       }
+       else{
+           return x + xVal;
+       }
    }
 
     

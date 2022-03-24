@@ -12,20 +12,19 @@ public class Main {
     
         // declaring an instance of the LinearTerm class
         LinearTerm lin = new LinearTerm();
-        // passing an int to a method inside the LinearTerm class 
-        String t1 = lin.linearTerm(9912);
+        
         // prints out the number passed with an "x" after
         // System.out.println(t1);
 
         // instantiating new LinearTerm
-        ITerm term = new LinearTerm();
+        //ITerm term = new LinearTerm();
 
         // works when using instantiation doesnt when using ITerm
-        System.out.println(lin.linearTerm(69));
+        System.out.println(lin.linearTerm(-69));
         System.out.println(lin.evaluate(3.12));
 
         
-        
+        // works in main but not any other class
         // ProjLinkedList<Integer> LL = new ProjLinkedList<>();
         
         // LL.add(3);

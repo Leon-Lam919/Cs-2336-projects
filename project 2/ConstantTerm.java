@@ -1,4 +1,4 @@
-class ConstantTerm implements ITerm{
+public class ConstantTerm implements ITerm{
 
     @Override
     public ITerm derivative() {
