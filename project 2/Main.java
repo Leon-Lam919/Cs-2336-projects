@@ -12,6 +12,9 @@ public class Main {
     
         // declaring an instance of the LinearTerm class
         LinearTerm lin = new LinearTerm();
+
+        // declaring an instance of the PolyTerm class
+        PolynomialTerm poly = new PolynomialTerm();
         
         // prints out the number passed with an "x" after
         // System.out.println(t1);
@@ -22,7 +25,10 @@ public class Main {
         // works when using instantiation doesnt when using ITerm
         System.out.println(lin.linearTerm(-69));
         System.out.println(lin.evaluate(3.12));
-        
+
+        System.out.println(poly.PolyTerm(24, 3));
+        System.out.println(poly.evaluate(9));
+
         
         // works in main but not any other class
         // ProjLinkedList<Integer> LL = new ProjLinkedList<>();
