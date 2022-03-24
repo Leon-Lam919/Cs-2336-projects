@@ -29,19 +29,15 @@ public class Expression{
 
     public void add(ITerm x){
 
-        // TODO: add ITerm objects to the linked list
+        // needs to add to linked list
         
     }
 
     // TODO: create a linked list of ITerms
 
-    public static void main(String[] args) {
-        ProjLinkedList<Integer> LL = new ProjLinkedList<>();
-
-        LL.add(4, 0);
-        LL.display();
-    }
 
 
     // when trying to call the add method in LL, does not work, looking for fix
+    // need to create LL constructor method
+
 }

@@ -11,7 +11,7 @@ public class ProjLinkedList <T> {
         }
     }
 
-    ProjLinkedList(){}
+    public ProjLinkedList(){}
 
     // TODO: needs to work inside the Expression class (complete)
     // list class that defines the entire list
