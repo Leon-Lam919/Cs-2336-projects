@@ -26,8 +26,11 @@ public class Main {
         ProjLinkedList<Integer> LL = new ProjLinkedList<>();
         
         LL.add(3);
+        LL.add(9);
+        LL.add(32);
+        LL.add(4);
 
-        LL.display();        
+        LL.display();     
     }
     
     

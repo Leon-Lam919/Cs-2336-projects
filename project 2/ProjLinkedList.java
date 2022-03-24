@@ -1,4 +1,4 @@
-public class ProjLinkedList<T> {
+public class ProjLinkedList <T> {
     
     // node class that creates a node
     class node<T>{
@@ -11,6 +11,8 @@ public class ProjLinkedList<T> {
         }
     }
 
+    ProjLinkedList(){}
+
     // TODO: needs to work inside the Expression class (complete)
     // list class that defines the entire list
 
@@ -21,7 +23,8 @@ public class ProjLinkedList<T> {
         private int length = 0;
 
         // method to add data to end of the linked list
-        void add(T data){
+        //TODO: needs to add data at the beginning of the list
+        public void add(T data){
             node<T> temp = new node<>(data);
 
             // checking if the list has any values yet
@@ -41,7 +44,7 @@ public class ProjLinkedList<T> {
         }
 
         //method that adds a value at any postion of the list
-        void add(int position, T data){
+        public void add(int position, T data){
             // checking if position is valid
             if(position > length + 1){
                 System.out.println("position unavailable");

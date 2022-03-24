@@ -33,11 +33,10 @@ public class Expression{
         
     }
 
-    //TODO: create a ProjLinkedList of ITerms
+    // TODO: create a linked list of ITerms
 
-    ProjLinkedList<Integer> List = new ProjLinkedList<>();
+    ProjLinkedList<Integer> LL = new ProjLinkedList<>();
 
-
-    
-
+    // when trying to call the add method in LL, does not work, looking for fix
+    // LL.add(3);
 }
