@@ -13,7 +13,7 @@ public class ProjLinkedList <T> {
 
     public ProjLinkedList(){}
 
-    // TODO: needs to work inside the Expression class (complete)
+    // TODO: needs to work inside the Expression class
     // list class that defines the entire list
 
         // delcaring head node
@@ -23,7 +23,6 @@ public class ProjLinkedList <T> {
         private int length = 0;
 
         // method to add data to end of the linked list
-        //TODO: needs to add data at the beginning of the list
         public void add(T data){
             node<T> temp = new node<>(data);
 
@@ -32,15 +31,22 @@ public class ProjLinkedList <T> {
                 head = temp;
             }
             else{
-                node<T> X = head;
-
-                while(X.next != null){
-                    X = X.next;
-                }
-                X.next = temp;
+                temp.next = head;
+                head = temp;
             }
             length++;
 
+        }
+
+        // method that returns the value of the node that is called
+        public int getAt (int position){
+            // cannot find a way to iterate the linked list to get to the position
+
+            for (int i = 0; i < position; i++){
+                head.next = head;
+            }
+
+            return 0; 
         }
 
         //method that adds a value at any postion of the list
