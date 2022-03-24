@@ -22,7 +22,7 @@ public class Main {
         // works when using instantiation doesnt when using ITerm
         System.out.println(lin.linearTerm(-69));
         System.out.println(lin.evaluate(3.12));
-
+        
         
         // works in main but not any other class
         // ProjLinkedList<Integer> LL = new ProjLinkedList<>();
