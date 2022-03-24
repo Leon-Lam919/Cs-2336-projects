@@ -35,8 +35,13 @@ public class Expression{
 
     // TODO: create a linked list of ITerms
 
-    ProjLinkedList<Integer> LL = new ProjLinkedList<>();
+    public static void main(String[] args) {
+        ProjLinkedList<Integer> LL = new ProjLinkedList<>();
+
+        LL.add(4, 0);
+        LL.display();
+    }
+
 
     // when trying to call the add method in LL, does not work, looking for fix
-    // LL.add(3);
 }
