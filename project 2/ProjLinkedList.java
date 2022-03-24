@@ -1,6 +1,4 @@
 public class ProjLinkedList<T> {
-// TODO: figure out if the linked list works and make sure all the fucntions work within it
-// TODO: currrently does not work with other classes and cannot be called from main
     
     // node class that creates a node
     class node<T>{

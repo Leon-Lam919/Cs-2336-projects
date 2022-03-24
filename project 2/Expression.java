@@ -1,7 +1,11 @@
-class Expression{
+public class Expression{
     
     //constructor method 
     public Expression(){}
+
+    public ITerm derivative(){
+        return null;
+    }
 
     // getter taht returns a new expression object containing the derivate of each term of the original obj
     public Expression getDerivative(){
@@ -12,7 +16,7 @@ class Expression{
 
     // TODO: get the evaluation of the expression that is sent in
     // gets eval
-    public double getEvaluation(double expression){
+    public double evaluate(double expression){
         // returns double
         return 0.0;
 
@@ -31,7 +35,8 @@ class Expression{
 
     //TODO: create a ProjLinkedList of ITerms
 
-    ProjLinkedList<ITerm> LL = new ProjLinkedList<>();
+    ProjLinkedList<Integer> List = new ProjLinkedList<>();
+
 
     
 
