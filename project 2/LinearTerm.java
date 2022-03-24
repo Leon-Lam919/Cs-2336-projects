@@ -25,12 +25,15 @@ public class LinearTerm extends ConstantTerm{
         return null;
     }
 
+    // can eval with values from main
+    // TODO; needs to work with ITerm
     public double evaluate(double expression) {
-        // TODO: evaluate the number with the value given
 
         double value = getX(x);
 
-        return value;
+        double ans = expression * value;
+
+        return ans;
         
     }
 }
