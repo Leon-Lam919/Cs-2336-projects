@@ -2,7 +2,8 @@ public class ConstantTerm implements ITerm{
 
 
     public ITerm derivative() {
-        // TODO Auto-generated method stub
+        // creating a new instance of a class that inherits Constant that implements ITerm, becomes a 
+        // return type of ITerm
         PolynomialTerm poly = new PolynomialTerm();
         return poly;
     }
