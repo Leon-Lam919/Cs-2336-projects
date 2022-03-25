@@ -1,14 +1,21 @@
 public class ConstantTerm implements ITerm{
 
-    @Override
+
     public ITerm derivative() {
         // TODO Auto-generated method stub
-        return null;
+        PolynomialTerm poly = new PolynomialTerm();
+        return poly;
     }
 
-    @Override
+    
     public double evaluate(double expression) {
         // TODO Auto-generated method stub
         return 0;
+    }
+
+    
+    public String toString() {
+        // TODO Auto-generated method stub
+        return super.toString();
     }
 }

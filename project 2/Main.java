@@ -30,6 +30,7 @@ public class Main {
         System.out.println(poly.evaluate(9));
 
         
+        
         // works in main but not any other class
         // ProjLinkedList<Integer> LL = new ProjLinkedList<>();
         
