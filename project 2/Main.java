@@ -29,6 +29,11 @@ public class Main {
         System.out.println(poly.PolyTerm(24, 3));
         System.out.println(poly.evaluate(9));
         
+
+        TrigTerm q = new TrigTerm(3, TrigType.COSINE);
+
+        System.out.println(q);
+        
         // works in main but not any other class
         // ProjLinkedList<Integer> LL = new ProjLinkedList<>();
         
