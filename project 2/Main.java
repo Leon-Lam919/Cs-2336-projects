@@ -14,7 +14,7 @@ public class Main {
         LinearTerm lin = new LinearTerm();
 
         // declaring an instance of the PolyTerm class
-        PolynomialTerm poly = new PolynomialTerm();
+        PolynomialTerm poly = new PolynomialTerm(1, 1);
         
         // prints out the number passed with an "x" after
         // System.out.println(t1);
@@ -33,7 +33,7 @@ public class Main {
         TrigTerm q = new TrigTerm(3, TrigType.COSINE);
 
         System.out.println(q);
-        
+
         // works in main but not any other class
         // ProjLinkedList<Integer> LL = new ProjLinkedList<>();
         

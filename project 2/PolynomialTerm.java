@@ -1,17 +1,17 @@
 public class PolynomialTerm extends LinearTerm{
-    private double term;
+    private int term;
     private int power;
     
     // contructor class
-    public PolynomialTerm(){}
+    public PolynomialTerm(int term, int power){}
 
     // setter for term
-    public void setTerm(double term){
+    public void setTerm(int term){
         this.term = term;
     }
 
     // getter for term
-    public double getTerm(double term){
+    public int getTerm(int term){
         return term;
     }
 
