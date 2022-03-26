@@ -1,19 +1,19 @@
 public class LinearTerm extends ConstantTerm{
-    private int x;
+    private double x;
 
     // construtor method
-    public LinearTerm(int term){
+    public LinearTerm(double term){
         super(term);
         setX(term);
     }
 
     public double getX(double x){return x;}
 
-    public void setX(int X){this.x = X;}
+    public void setX(double X){this.x = X;}
 
     // method that takes in the int and returns the int with "x" afterwards
     // TODO: needs to be called from ITerm and not from here when called, dont know how to solve yet
-    public String linearTerm(int x){
+    public String linearTerm(double x){
        String xVal = "x";
         setX(x);
 

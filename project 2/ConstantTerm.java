@@ -9,6 +9,7 @@ public class ConstantTerm implements ITerm{
     public double getX() {
         return x;
     }
+    
     public ConstantTerm(double x){
         setX(x);
     }
