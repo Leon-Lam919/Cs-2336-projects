@@ -9,7 +9,7 @@ public class LinearTerm extends ConstantTerm{
 
     public double getX(double x){return x;}
 
-    public void setX(double X){this.x = X;}
+    public void setX(double x){this.x = x;}
 
     // method that takes in the int and returns the int with "x" afterwards
     // TODO: needs to be called from ITerm and not from here when called, dont know how to solve yet

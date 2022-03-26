@@ -3,8 +3,10 @@ public class PolynomialTerm extends LinearTerm{
     private int power;
     
     // contructor class
-    public PolynomialTerm(int term, int power){
-        super(term);
+    public PolynomialTerm(int val, int power){
+        super(val);
+        setPower(power);
+        setTerm(val);
     }
 
     // setter for term

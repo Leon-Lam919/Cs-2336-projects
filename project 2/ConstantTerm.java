@@ -1,6 +1,7 @@
 public class ConstantTerm implements ITerm{
-
     private double x;
+    // can create a var of ITerm
+    ITerm c;
 
     public void setX(double x) {
         this.x = x;
@@ -9,7 +10,7 @@ public class ConstantTerm implements ITerm{
     public double getX() {
         return x;
     }
-    
+
     public ConstantTerm(double x){
         setX(x);
     }
