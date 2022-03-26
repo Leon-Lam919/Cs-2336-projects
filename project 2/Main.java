@@ -25,13 +25,12 @@ public class Main {
         // works when using instantiation doesnt when using ITerm
         System.out.println(lin.evaluate(3));
 
-        System.out.println(poly.PolyTerm(24, 3));
         System.out.println(poly.evaluate(9));
         
 
-        TrigTerm q = new TrigTerm(3, TrigType.COSINE);
+        TrigTerm q = new TrigTerm(-6, TrigType.COSINE);
 
-        System.out.println(q);
+        System.out.println(q.evaluate(45));
 
         // works in main but not any other class
         // ProjLinkedList<Integer> LL = new ProjLinkedList<>();

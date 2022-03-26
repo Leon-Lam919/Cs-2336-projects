@@ -1,6 +1,17 @@
 public class ConstantTerm implements ITerm{
 
-    public ConstantTerm(int x){}
+    private double x;
+
+    public void setX(double x) {
+        this.x = x;
+    }
+
+    public double getX() {
+        return x;
+    }
+    public ConstantTerm(double x){
+        setX(x);
+    }
 
 
     public ITerm derivative() {
@@ -12,8 +23,7 @@ public class ConstantTerm implements ITerm{
 
     
     public double evaluate(double expression) {
-        // TODO Auto-generated method stub
-        return 0;
+        return getX();
     }
 
     
