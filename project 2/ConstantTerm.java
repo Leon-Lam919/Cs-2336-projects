@@ -1,5 +1,7 @@
 public class ConstantTerm implements ITerm{
 
+    public ConstantTerm(int num){}
+
 
     public ITerm derivative() {
         // creating a new instance of a class that inherits Constant that implements ITerm, becomes a 
