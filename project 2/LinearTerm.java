@@ -3,6 +3,8 @@ public class LinearTerm extends ConstantTerm{
 
     // construtor method
     public LinearTerm(int term){
+        super(term);
+        setX(term);
     }
 
     public double getX(double x){return x;}

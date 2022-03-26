@@ -3,5 +3,7 @@
 
 public class TrigTerm extends LinearTerm{
 
-    public TrigTerm(int x, TrigType r){} 
+    public TrigTerm(int x, TrigType r){
+        super(x);
+    } 
 }

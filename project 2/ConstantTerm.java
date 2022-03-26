@@ -1,6 +1,6 @@
 public class ConstantTerm implements ITerm{
 
-    public ConstantTerm(){}
+    public ConstantTerm(int x){}
 
 
     public ITerm derivative() {

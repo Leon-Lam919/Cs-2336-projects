@@ -23,8 +23,7 @@ public class Main {
         //ITerm term = new LinearTerm();
 
         // works when using instantiation doesnt when using ITerm
-        System.out.println(lin.linearTerm(-69));
-        System.out.println(lin.evaluate(3.12));
+        System.out.println(lin.evaluate(3));
 
         System.out.println(poly.PolyTerm(24, 3));
         System.out.println(poly.evaluate(9));

@@ -1,9 +1,11 @@
 public class PolynomialTerm extends LinearTerm{
-    private int term;
+    private double term;
     private int power;
     
     // contructor class
-    public PolynomialTerm(int term, int power){}
+    public PolynomialTerm(int term, int power){
+        super(term);
+    }
 
     // setter for term
     public void setTerm(int term){
@@ -11,7 +13,7 @@ public class PolynomialTerm extends LinearTerm{
     }
 
     // getter for term
-    public int getTerm(int term){
+    public double getTerm(){
         return term;
     }
 
@@ -21,7 +23,7 @@ public class PolynomialTerm extends LinearTerm{
     }
 
     // getter for power
-    public int getPower(int power){
+    public double getPower(){
         return power;
     }
 
@@ -40,6 +42,11 @@ public class PolynomialTerm extends LinearTerm{
 
     // calcualtes the polynomial term with the expression value given
     public double evaluate(double val){
-        return 0.0;
+        double x, y;
+        x = getTerm();
+        y = getPower();
+
+        double ans = x * Math.pow(val, y);
+        return ans;
     }
 }
