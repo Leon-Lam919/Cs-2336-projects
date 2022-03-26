@@ -11,7 +11,7 @@ public class Main {
         // TODO: then that needs to be able to be calculated and changed
     
         // declaring an instance of the LinearTerm class
-        LinearTerm lin = new LinearTerm();
+        LinearTerm lin = new LinearTerm(3);
 
         // declaring an instance of the PolyTerm class
         PolynomialTerm poly = new PolynomialTerm(1, 1);
