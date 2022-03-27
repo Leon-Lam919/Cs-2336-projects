@@ -27,9 +27,8 @@ public class LinearTerm extends ConstantTerm{
 
 
     public ITerm derivative() {
-        // TODO derive the linear term to a constant
-        // TODO: return a value of ITerm type
-        return null;
+        LinearTerm lin = new LinearTerm(getX());
+        return lin;
     }
 
     // can eval with values from main
