@@ -13,6 +13,7 @@ public class Main {
 
         // TODO: needs to be instaniated with ITerm, not the sub class itself, 
         // TODO: then that needs to be able to be calculated and changed
+
         
     }
     
