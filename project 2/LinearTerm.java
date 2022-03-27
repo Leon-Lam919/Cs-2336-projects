@@ -25,7 +25,7 @@ public class LinearTerm extends ConstantTerm{
        }
    }
 
-
+    // returns the correct derivate
     public ITerm derivative() {
         LinearTerm lin = new LinearTerm(getX());
         return lin;

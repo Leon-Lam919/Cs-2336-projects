@@ -30,9 +30,9 @@ public class Expression{
     public static void add(ITerm x){
 
         // needs to add to linked list
-        ProjLinkedList<Integer> LL = new ProjLinkedList<>();
-        LL.add(5);
-        LL.display();
+        // ProjLinkedList<Integer> LL = new ProjLinkedList<>();
+        // LL.add(5);
+        // LL.display();
         
     }
 
