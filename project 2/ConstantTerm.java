@@ -17,12 +17,16 @@ public class ConstantTerm implements ITerm{
 
 
     public ITerm derivative() {
-        // creating a new instance of a class that inherits Constant that implements ITerm, becomes a 
-        // return type of ITerm
-        PolynomialTerm poly = new PolynomialTerm(1, 1);
-        return poly;
+        double num = getX();
+        if (num < 0){
+            // return with -
+        }
+        else if (num > 0){
+            // return with +
+        }
+               
+        return c;
     }
-
     
     public double evaluate(double expression) {
         return getX();
@@ -32,5 +36,11 @@ public class ConstantTerm implements ITerm{
     public String toString() {
         // TODO Auto-generated method stub
         return super.toString();
+    }
+
+    public static void main(String[] args) {
+        ConstantTerm d = new ConstantTerm(5.0);
+
+        d.derivative();
     }
 }
