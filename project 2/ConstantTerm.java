@@ -1,7 +1,6 @@
 public class ConstantTerm implements ITerm{
     private double x;
     // can create a var of ITerm
-    ITerm c = zero();
 
     public void setX(double x) {
         this.x = x;
@@ -17,21 +16,11 @@ public class ConstantTerm implements ITerm{
 
 
     public ITerm derivative() {
-        double num = getX();
-        if (num < 0){
-            // return with -
-        }
-        else if (num > 0){
-            // return with +
-        }
-               
+        ConstantTerm c = new ConstantTerm(0);
+        
         return c;
     }
 
-    public ITerm zero(){
-        return 0;
-        return c;
-    }
     
     public double evaluate(double expression) {
         return getX();
