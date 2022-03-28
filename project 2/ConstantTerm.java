@@ -12,7 +12,7 @@ public class ConstantTerm implements ITerm{
 
     public ConstantTerm(double x){
         setX(x);
-        }
+    }
 
     public ITerm derivative() {
         ConstantTerm c = new ConstantTerm(getX());

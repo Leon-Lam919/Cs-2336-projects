@@ -20,10 +20,7 @@ public class Main {
         
         PolynomialTerm poly = new PolynomialTerm(3, 3);
         System.out.println(poly.derivative());
-
-        ProjLinkedList<Integer> list = new ProjLinkedList<Integer>();
-        list.add(3);
-        list.display();
+        
     }
     
 }
