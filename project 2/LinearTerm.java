@@ -12,7 +12,6 @@ public class LinearTerm extends ConstantTerm{
     public void setX(double x){this.x = x;}
 
     // method that takes in the int and returns the int with "x" afterwards
-    // TODO: needs to be called from ITerm and not from here when called, dont know how to solve yet
     public String linearTerm(double x){
        String xVal = "x";
         setX(x);

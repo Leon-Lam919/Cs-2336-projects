@@ -39,6 +39,10 @@ public class Expression{
 
     // TODO: create a linked list of ITerms
 
+    public double getEvaluation(double val){
+        return 0.0;
+    }
+
 
 
     // when trying to call the add method in LL, does not work, looking for fix
