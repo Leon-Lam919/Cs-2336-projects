@@ -11,8 +11,6 @@ public class ProjLinkedList <T> {
         }
     }
 
-    // constructor class
-    public ProjLinkedList(){}
 
     // TODO: needs to work inside the Expression class
 
