@@ -4,10 +4,11 @@ public class Expression{
     public Expression(){}
 
     public ITerm derivative(){
-        return null;
+        ConstantTerm t = new ConstantTerm(0);
+        return t;
     }
 
-    // getter taht returns a new expression object containing the derivate of each term of the original obj
+    // getter that returns a new expression object containing the derivate of each term of the original obj
     public Expression getDerivative(){
         // created instance of expression and returns expression
         Expression E = new Expression();

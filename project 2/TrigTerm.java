@@ -12,7 +12,6 @@ public class TrigTerm extends LinearTerm{
     } 
 
     public void setX(double x) {
-        Math.toRadians(x);
         this.x = x;    
     }
 
@@ -40,20 +39,14 @@ public class TrigTerm extends LinearTerm{
         double ans = 0;
 
         if (t == TrigType.COSINE){
-            ans = num * Math.cos(term);
-            if (ans < 0){
-                return ans * -1;
-            }
+            ans = num * Math.cos(Math.toRadians(term));
             return ans;
         }
         else if (t == TrigType.SINE){
-            ans = num * Math.sin(term);
-            if (ans < 0){
-                return ans * -1;
-            }
+            ans = num * Math.sin(Math.toRadians(term));
             return ans;
         }
-        return ans;
+        return -1;
     }
 
 }

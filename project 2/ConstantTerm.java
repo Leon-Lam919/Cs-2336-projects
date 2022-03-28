@@ -14,7 +14,6 @@ public class ConstantTerm implements ITerm{
         setX(x);
         }
 
-
     public ITerm derivative() {
         ConstantTerm c = new ConstantTerm(getX());
         return c;
@@ -29,11 +28,5 @@ public class ConstantTerm implements ITerm{
     public String toString() {
         // TODO Auto-generated method stub
         return super.toString();
-    }
-
-    public static void main(String[] args) {
-        ConstantTerm d = new ConstantTerm(5.0);
-
-        d.derivative();
     }
 }
