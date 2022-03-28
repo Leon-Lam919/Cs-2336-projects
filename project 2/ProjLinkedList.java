@@ -12,10 +12,13 @@ public class ProjLinkedList <T> {
         }
     }
 
+        private T r;
+        // TODO: needs to work inside the Expression class
 
-    // TODO: needs to work inside the Expression class
+            
+        // list class that defines the entire list
 
-    // list class that defines the entire list
+        public <T>ProjLinkedList(){}
 
         // delcaring head node
         node<T> head;
