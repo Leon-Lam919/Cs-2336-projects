@@ -1,4 +1,4 @@
-
+import java.lang.Math;
 // This class will take the part of the 
 
 public class TrigTerm extends LinearTerm{
@@ -12,7 +12,8 @@ public class TrigTerm extends LinearTerm{
     } 
 
     public void setX(double x) {
-        this.x = x;
+        Math.toRadians(x);
+        this.x = x;    
     }
 
     public void setTrig(TrigType r){
