@@ -16,11 +16,10 @@ public class Main {
 
         TrigTerm tig = new TrigTerm(-6, TrigType.COSINE);
 
-        System.out.println(tig.evaluate(45));
+        //System.out.println(tig.evaluate(45));
         
         PolynomialTerm poly = new PolynomialTerm(3, 3);
         System.out.println(poly.derivative());
-        
     }
     
 }

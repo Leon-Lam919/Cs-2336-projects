@@ -56,12 +56,12 @@ public class PolynomialTerm extends LinearTerm{
     public ITerm derivative(){
         int term = getTerm();
         int power = getPower();
-        PolynomialTerm poly = new PolynomialTerm(term, power);
+        PolynomialTerm poly = new PolynomialTerm(term * power, power - 1);
         
-        return new PolynomialTerm(1, 4);
+        return poly;
     }
 
     public String toString(){
-        return "";
+        return getX() - 1 + " ^ " + getPower() + " ";
     }
 }
