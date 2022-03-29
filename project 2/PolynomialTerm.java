@@ -7,7 +7,6 @@ public class PolynomialTerm extends LinearTerm{
         super(val);
         setPower(power);
         setTerm(val);
-
     }
 
     // setter for term
@@ -30,18 +29,6 @@ public class PolynomialTerm extends LinearTerm{
         return power;
     }
 
-    // returns the polynomail in the correct form
-    public String PolyTerm(int term, int power){
-        setTerm(term);
-        setPower(power);
-        
-        if (term < 0){
-            return "- " + term*-1 + "^" + power;
-        }
-        else{
-            return term + "^" + power;
-        }
-    }
 
     // calcualtes the polynomial term with the expression value given
     public double evaluate(double val){
@@ -56,12 +43,19 @@ public class PolynomialTerm extends LinearTerm{
     public ITerm derivative(){
         int term = getTerm();
         int power = getPower();
-        PolynomialTerm poly = new PolynomialTerm(term * power, power - 1);
+        int val = term * power;
+        PolynomialTerm poly = new PolynomialTerm(val, power - 1);
         
         return poly;
     }
 
     public String toString(){
-        return getX() - 1 + " ^ " + getPower() + " ";
+        if (getTerm() < 0){
+        return "- " + getTerm()*-1 + "x^" + getPower() + " ";
+        }
+        else if (getTerm() > 0){
+            return "+ " + getTerm() + "x^" + getPower() + " ";
+        }
+        return "";
     }
 }

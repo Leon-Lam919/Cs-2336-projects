@@ -4,14 +4,15 @@ import java.lang.Math;
 public class TrigTerm extends LinearTerm{
 
     private TrigType r;
-    private double x;
+    private int x;
 
     public TrigTerm(int x, TrigType r){
         super(x);
+        setX(x);
         setTrig(r);
     } 
 
-    public void setX(double x) {
+    public void setX(int x) {
         this.x = x;    
     }
 
@@ -26,13 +27,7 @@ public class TrigTerm extends LinearTerm{
     public TrigType getTrig(){
         return r;
     }
-
-    @Override
-    public String toString(){
-        return "";
-    }
-
-
+    
     public double evaluate(double term){
         TrigType t = getTrig();
         double num = getX();
@@ -47,6 +42,34 @@ public class TrigTerm extends LinearTerm{
             return ans;
         }
         return -1;
+    }
+    
+    public ITerm derivative(){
+        double x = getX();
+        TrigType t = getTrig();
+        TrigTerm trig = new TrigTerm((int)x, t);
+
+        return trig;
+    }
+
+    public String toString(){
+        if (getTrig() == TrigType.COSINE){
+            if (getX() < 0){
+            return "+ " + getX()*-1 + "sin(x)" ;
+            }
+            else {
+                return "- " + getX() + "sin(x) ";
+            }
+        }
+        else if (getTrig() == TrigType.SINE){
+            if (getX() < 0){
+                return "- " + getX()*-1 + "cos(x) ";
+            }
+            else {
+                return "+ " + getX() + "cos(x) ";
+            }
+        }
+        return "";
     }
 
 }

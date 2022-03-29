@@ -18,8 +18,9 @@ public class Main {
 
         //System.out.println(tig.evaluate(45));
         
-        PolynomialTerm poly = new PolynomialTerm(3, 3);
-        System.out.println(poly.derivative());
+        System.out.println(tig.derivative());
+
+
     }
     
 }
