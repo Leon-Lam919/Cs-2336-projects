@@ -12,7 +12,6 @@ public class ProjLinkedList <T> {
         }
     }
 
-        private T r;
         // TODO: needs to work inside the Expression class
 
             

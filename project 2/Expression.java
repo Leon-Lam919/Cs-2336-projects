@@ -28,10 +28,8 @@ public class Expression{
         return null;
     }
 
-    public static void add(ITerm x){
-
+    public void add(ITerm x){
         ProjLinkedList<Integer> List = new ProjLinkedList<>();
-        
     }
 
     // TODO: create a linked list of ITerms
