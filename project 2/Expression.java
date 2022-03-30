@@ -2,6 +2,7 @@ public class Expression{
     
     //constructor method 
     public Expression(){}
+    ProjLinkedList<ITerm> List = new ProjLinkedList<>();
 
     public ITerm derivative(){
         ConstantTerm t = new ConstantTerm(0);
@@ -24,12 +25,11 @@ public class Expression{
     }
 
     public String toString(){
-        // TODO: returns the input to string type
-        return null;
+        return List.getAt(0) + " " + List.getAt(1) + " ";
     }
 
     public void add(ITerm x){
-        ProjLinkedList<Integer> List = new ProjLinkedList<>();
+        List.add(x);
     }
 
     // TODO: create a linked list of ITerms

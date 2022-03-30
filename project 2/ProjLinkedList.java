@@ -42,14 +42,13 @@ public class ProjLinkedList <T> {
         }
 
         // method that returns the value of the node that is called
-        public int getAt (int position){
+        public T getAt (int position){
             // cannot find a way to iterate the linked list to get to the position
 
             for (int i = 0; i < position; i++){
                 head.next = head;
             }
-
-            return 0; 
+            return null;
         }
 
         //method that adds a value at any postion of the list
