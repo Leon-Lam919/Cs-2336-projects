@@ -1,22 +1,26 @@
+// Leon Lam
+// CS 2336.002
+// Professor: Gorndon Arnold
+// Due date: 3/29/2022
+// This program will take inputs of int or trig type and return an evaluation, the value with the
+// correct value or the evaluation of given values
 
 public class Main {    
     public static void main(String[] args) {
         Expression a  = new Expression();
         a.toString();
-        System.out.println("test");
-
-        TrigType x = TrigType.COSINE;
+        //System.out.println("test");
 
         // TODO: needs to be instaniated with ITerm, not the sub class itself, 
         // TODO: then that needs to be able to be calculated and changed
-    
-        // declaring an instance of the LinearTerm class
-        LinearTerm lin = new LinearTerm();
-        // passing an int to a method inside the LinearTerm class 
-        String t1 = lin.linearTerm(9);
-        // prints out the number passed with an "x" after
-        System.out.println(t1);
+
+        TrigTerm tig = new TrigTerm(-6, TrigType.COSINE);
+
+        //System.out.println(tig.evaluate(45));
+        
+        System.out.println(tig.derivative());
+
+
     }
-    
     
 }

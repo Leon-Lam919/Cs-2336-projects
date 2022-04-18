@@ -1,6 +1,5 @@
-public class ProjLinkedList {
-// TODO: figure out if the linked list works and make sure all the fucntions work within it
-// TODO: currrently does not work with other classes and cannot be called from main
+
+public class ProjLinkedList <T> {
     
     // node class that creates a node
     class node<T>{
@@ -13,22 +12,21 @@ public class ProjLinkedList {
         }
     }
 
-    // TODO: needs to work inside the Expression class
-    // list class that defines the entire list
-    public class list<T>{
+        // TODO: needs to work inside the Expression class
+
+            
+        // list class that defines the entire list
+
+        public <T>ProjLinkedList(){}
+
         // delcaring head node
         node<T> head;
 
         // length of list
         private int length = 0;
 
-        // default constructor for list
-        list(){
-            this.head=null;
-        }
-
         // method to add data to end of the linked list
-        void add(T data){
+        public void add(T data){
             node<T> temp = new node<>(data);
 
             // checking if the list has any values yet
@@ -36,19 +34,25 @@ public class ProjLinkedList {
                 head = temp;
             }
             else{
-                node<T> X = head;
-
-                while(X.next != null){
-                    X = X.next;
-                }
-                X.next = temp;
+                temp.next = head;
+                head = temp;
             }
             length++;
 
         }
 
+        // method that returns the value of the node that is called
+        public T getAt (int position){
+            // cannot find a way to iterate the linked list to get to the position
+
+            for (int i = 0; i < position; i++){
+                head.next = head;
+            }
+            return null;
+        }
+
         //method that adds a value at any postion of the list
-        void add(int position, T data){
+        public void add(int position, T data){
             // checking if position is valid
             if(position > length + 1){
                 System.out.println("position unavailable");
@@ -133,9 +137,18 @@ public class ProjLinkedList {
             }
         }
 
-    }
+        public void display(){
+            node<T> current = head;
 
-    public static void main(String[] args) {
-        
-    }
+            if (head == null){
+                System.out.println("List is empty");
+            }
+
+            while(current != null){
+                System.out.println(current.data);
+                current = current.next;
+            }
+        }
+
+
 }
