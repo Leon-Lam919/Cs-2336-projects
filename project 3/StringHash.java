@@ -38,7 +38,10 @@ public class StringHash {
 
     // constructor StringHash method
     public StringHash(int size, int initialvalue, int hashMultiplier, int relativePrime){
-        System.out.println("hi");
+        setSize(size);
+        setInitialValue(initialvalue);
+        setHashMultiplier(hashMultiplier);
+        setRelativePrime(relativePrime);
     }
 
     // method that sees if the StringHash contains the value
