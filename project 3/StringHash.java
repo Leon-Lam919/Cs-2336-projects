@@ -2,6 +2,7 @@ import java.lang.String;
 
 public class StringHash {
     private int size, initialvalue, hashMultiplier, relativePrime;
+    private String [] hash = new String [getSize()];
 
     // size setter
     public void setSize(int size) {
