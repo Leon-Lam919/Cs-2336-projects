@@ -18,15 +18,36 @@ public class Main{
 
         StringHash SH = new StringHash(table, hashVal, hashMulti, primeVal);
 
-        System.out.print("1. Search String \n 2. Add String \n 3. Remove String \n 4. Display Table \n 5. Resize Table \n Q. Quit \n Choice: ");
+        String quit = "";
+        while (quit != "Q"){
+        System.out.println("1. Search String");
+        System.out.println("2. Add String");
+        System.out.println("3. Remove String");
+        System.out.println("4. Display Table");
+        System.out.println("5. Resize Table");
+        System.out.println("Q. Quit");
+        System.out.print("Choice: ");
         String input = in.next();
 
         if (input.equals("1")){
             System.out.println("1");
         }
-        else{
-            System.out.println("not choice");
+        else if (input.equals("2")){
+            System.out.println("2");
         }
+        else if (input.equals("3")){
+            System.out.println("3");
+        }
+        else if(input.equals("4")){
+            System.out.println("4");
+        }
+        else if (input.equals("5")){
+            System.out.println("5");
+        }
+        else if (input.equals("Q")){
+            quit = "Q";
+        }
+    }
 
         in.close();
     }    
