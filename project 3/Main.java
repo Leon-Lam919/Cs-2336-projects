@@ -35,25 +35,31 @@ public class Main{
         System.out.print("Choice: ");
         String input = in.next();
 
+        // search
         if (input.equals("1")){
             System.out.print("String to search for: ");
             String data = in.next();
             SH.contains(data);
         }
+        // add string
         else if (input.equals("2")){
             System.out.print("String to add: ");
             String data = in.next();
             SH.add(data);
         }
+        // remove string
         else if (input.equals("3")){
             System.out.println("3");
         }
+        // display table
         else if(input.equals("4")){
             SH.displayTable();
         }
+        // resize table
         else if (input.equals("5")){
             System.out.println("5");
         }
+        // breaks out of while loop
         else if (input.equals("Q")){
             quit = "Q";
         }
