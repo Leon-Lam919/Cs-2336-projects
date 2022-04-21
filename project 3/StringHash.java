@@ -54,19 +54,17 @@ public class StringHash {
         int x = getSize();
         // simple for loop to populate array until hash map can be created
         for(int i = 0; i < x; i++){
-            if (hash[i] == null){
-                hash[i] = data;
-                break;
+                if (hash[i] == null){
+                    hash[i] = data;
+                }
+                else{
+                    continue;
+                    
+                }
             }
-            else if (hash[i] != null){
-                break;
-            }
-            else{
-                hash[i] = "<EMPTY>";
-            }
-        }
         return false;
     }
+
 
     
     boolean remove(String data){
@@ -79,6 +77,9 @@ public class StringHash {
         
         // checks the array and sees if it is null, then set Empty inside of it, otherwise it will have a string inside of it
         for (int i = 0; i < x; i++){
+            if (hash[i] == null){
+                hash[i] = "<EMPTY>";
+            }
             System.out.println(i + " : " + hash[i]);
         }
     }
