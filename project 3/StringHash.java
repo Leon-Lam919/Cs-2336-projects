@@ -61,7 +61,7 @@ public class StringHash {
     // the hash val of it
     int hashMultiplicative(String data){
         int stringHash = getInitialvalue();
-        int multiplier = hashMultiplier();
+        int multiplier = getHashMultiplier();
         char[] string = data.toCharArray();
         int x = getSize();
 
