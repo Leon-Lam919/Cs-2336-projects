@@ -37,6 +37,11 @@ public class StringHash {
         // sets the size and sets the hash array size
         this.size = size;
         this.hash = new String[size];
+        for(int i = 0; i < size; i++){
+            if (hash[i] == null){
+                hash[i] = "<EMPTY>";
+            }
+        }
 
         setInitialValue(initialvalue);
         setHashMultiplier(hashMultiplier);
@@ -45,6 +50,13 @@ public class StringHash {
 
     // method that sees if the StringHash contains the value
     boolean contains(String data){
+        int x = getSize();
+        for (int i = 0; i < x; i++){
+            if (hash[i] == data){
+                System.out.println("Searching \"" + data + "\" ->" + i + "TRUE");
+                return true;
+            }
+        }
         return false;
     }
 
@@ -54,17 +66,14 @@ public class StringHash {
         int x = getSize();
         // simple for loop to populate array until hash map can be created
         for(int i = 0; i < x; i++){
-                if (hash[i] == null){
+                if (hash[i] == "<EMPTY>"){
                     hash[i] = data;
-                }
-                else{
-                    continue;
-                    
+                    System.out.println("Adding " + "\"" + data + "\" -> " + i);
+                    return true;
                 }
             }
         return false;
     }
-
 
     
     boolean remove(String data){
@@ -77,9 +86,6 @@ public class StringHash {
         
         // checks the array and sees if it is null, then set Empty inside of it, otherwise it will have a string inside of it
         for (int i = 0; i < x; i++){
-            if (hash[i] == null){
-                hash[i] = "<EMPTY>";
-            }
             System.out.println(i + " : " + hash[i]);
         }
     }
