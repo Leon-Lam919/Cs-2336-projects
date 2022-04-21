@@ -39,13 +39,15 @@ public class Main{
             System.out.println("1");
         }
         else if (input.equals("2")){
-            System.out.println("2");
+            System.out.print("String to add: ");
+            String data = in.next();
+            SH.add(data);
         }
         else if (input.equals("3")){
             System.out.println("3");
         }
         else if(input.equals("4")){
-            System.out.println("4");
+            SH.displayTable();
         }
         else if (input.equals("5")){
             System.out.println("5");
