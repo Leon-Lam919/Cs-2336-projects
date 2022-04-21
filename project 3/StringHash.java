@@ -48,17 +48,6 @@ public class StringHash {
         setRelativePrime(relativePrime);
     }
 
-    // method that sees if the StringHash contains the value
-    boolean contains(String data){
-        int x = getSize();
-        for (int i = 0; i < x; i++){
-            if (hash[i] == data){
-                System.out.println("Searching \"" + data + "\" ->" + i + "TRUE");
-                return true;
-            }
-        }
-        return false;
-    }
 
     // method that adds the value to the StringHash
     // will add strings according to the hash
@@ -75,6 +64,17 @@ public class StringHash {
         return false;
     }
 
+       // method that sees if the StringHash contains the value
+       boolean contains(String data){
+        int x = getSize();
+        for (int i = 0; i < x; i++){
+            if (hash[i].equals(data)){
+                System.out.println("Searching \"" + data + "\" ->" + i + " TRUE");
+                return true;
+            }
+        }
+        return false;
+    }
     
     boolean remove(String data){
         return false;

@@ -36,7 +36,9 @@ public class Main{
         String input = in.next();
 
         if (input.equals("1")){
-            System.out.println("1");
+            System.out.print("String to search for: ");
+            String data = in.next();
+            SH.contains(data);
         }
         else if (input.equals("2")){
             System.out.print("String to add: ");
