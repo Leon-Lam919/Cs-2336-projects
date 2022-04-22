@@ -19,6 +19,7 @@ public class StringHash {
     public void setRelativePrime(int relativePrime){
         this.relativePrime = relativePrime;
     }
+
     
     // size getter
     public int getSize(){
@@ -39,6 +40,7 @@ public class StringHash {
     public int getRelativePrime() {
         return relativePrime;
     }
+
 
     // constructor StringHash method
     public StringHash(int size, int initialvalue, int hashMultiplier, int relativePrime){
@@ -76,13 +78,20 @@ public class StringHash {
     // adds strings according to the hash table val
     // TODO: needs to return false/ failed if it cannot be added to list
     boolean add(String data){
+
         int x = getSize();
         // simple for loop to populate array until hash map can be created
         for(int i = 0; i < x; i++){
-                if (hash[i] == "<EMPTY>"){
-                    hash[i] = data;
-                    System.out.println("Adding " + "\"" + data + "\" -> " + i);
+                if (hash[i].equals("<EMPTY>")){
+                    int n = hashMultiplicative(data);
+                    hash[n] = data;
+                    System.out.println("Adding " + "\"" + data + "\" -> " + n);
                     return true;
+                }
+                else if (!hash[i].equals("<EMPTY>")){
+                    int n = hashMultiplicative(data);
+                    hash[n+1] = data;
+                    System.out.println("Adding " + "\"" + data + "\" ->" + (n-1) + n);
                 }
             }
         return false;
