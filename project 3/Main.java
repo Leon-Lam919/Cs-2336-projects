@@ -49,7 +49,9 @@ public class Main{
         }
         // remove string
         else if (input.equals("3")){
-            System.out.println("3");
+            System.out.print("String to remove: ");
+            String data = in.next();
+            SH.remove(data);
         }
         // display table
         else if(input.equals("4")){

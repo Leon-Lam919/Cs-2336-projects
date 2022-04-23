@@ -61,15 +61,27 @@ public class StringHash {
     // the hash val of it
     int hashMultiplicative(String data){
         int stringHash = getInitialvalue();
-        int multiplier = hashMultiplier();
+        int multiplier = getHashMultiplier();
+        int prime = getRelativePrime();
         char[] string = data.toCharArray();
         int x = getSize();
 
         // using a for loop, will take the string and add it to the hash val
+        // if the string when hashed can be placed into that index, do so
+        // else, add the prime part into the function to return a new index, or until no collision
         for (int i = 0; i < data.length(); i++){
             stringHash = (stringHash * multiplier) + string[i];
         }
-        return stringHash % x;
+        for (int i = 0; i < x; i++){
+            if (hash[stringHash].equals("<EMPTY>")){
+                return stringHash % x;
+            }
+            else if (!hash[stringHash].equals("<EMPTY>")){
+                int index = ((stringHash % x) + i*(prime - (stringHash % prime)));
+                return index;
+            }
+        }
+        return 0;
     }
 
     // method that adds the value to the StringHash
@@ -96,7 +108,7 @@ public class StringHash {
         int x = getSize();
         for (int i = 0; i < x; i++){
             if (hash[i].equals(data)){
-                System.out.println("Searching \"" + data + "\" ->" + i + " TRUE");
+                System.out.println("Searching \"" + data + "\" -> " + i + " TRUE");
                 return true;
             }
         }
@@ -108,6 +120,14 @@ public class StringHash {
     // TODO: if it is there, remove and return true
     // TODO: relist the spot as removed and not empty or filled
     boolean remove(String data){
+        int x = getSize();
+        for (int i = 0; i < x; i++){
+            if (hash[i].equals(data)){
+                System.out.println("Removing \"" + data +"\" -> " + i);
+                hash[i] = "<REMOVED>";
+                return true;
+            }
+        }
         return false;
     }
 
