@@ -81,7 +81,7 @@ public class StringHash {
                 return index;
             }
         }
-        return 0;
+        return -1;
     }
 
     // method that adds the value to the StringHash
@@ -144,6 +144,13 @@ public class StringHash {
     // TODO: needs to double the size of the array
     // TODO: rehash the values inside the array to the correct spot
     void resize(){
+        int x = getSize();
 
+        String[] temp = new String [x*2];
+
+        for (int i = 0; i < x; i++){
+            hash[i] = temp[i];
+            hash[i*2] = temp[i];
+        }
     }
 }
