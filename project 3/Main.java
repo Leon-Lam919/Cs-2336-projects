@@ -54,7 +54,7 @@ public class Main{
             SH.add(data);
         }
         // remove string
-        // because fuck that string
+        // because to hell with that string
         else if (input.equals("3")){
             System.out.print("String to remove: ");
             String data = in.next();

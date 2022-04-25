@@ -62,26 +62,40 @@ public class StringHash {
     int hashMultiplicative(String data){
         int stringHash = getInitialvalue();
         int multiplier = getHashMultiplier();
-        int prime = getRelativePrime();
         char[] string = data.toCharArray();
         int x = getSize();
 
         // using a for loop, will take the string and add it to the hash val
-        // if the string when hashed can be placed into that index, do so
-        // else, add the prime part into the function to return a new index, or until no collision
+        // returns the string hash % table which is the index to put the string into
         for (int i = 0; i < data.length(); i++){
             stringHash = (stringHash * multiplier) + string[i];
         }
-        for (int i = 0; i < x; i++){
-            if (hash[stringHash].equals("<EMPTY>")){
-                return stringHash % x;
-            }
-            else if (!hash[stringHash].equals("<EMPTY>")){
-                int index = ((stringHash % x) + i*(prime - (stringHash % prime)));
+        return stringHash % x;
+    }
+
+    int doubleHash(String data){
+        int stringHash = getInitialvalue();
+        int multiplier = getHashMultiplier();
+        int prime = getRelativePrime();
+        char[] string = data.toCharArray();
+        int x = getSize();
+
+        //String that could not be hashed, now must be double hashed
+
+        // for loop that will hash the string first
+        for (int i = 0; i < data.length(); i++){
+            stringHash = (stringHash * multiplier) + string[i];
+        }
+        stringHash = stringHash % x;
+
+        for (int j = 0; j < x; j++){
+            if (hash[j].equals("<EMPTY>")){
+                int index = ((stringHash % x) + j*(prime - (stringHash % prime)));
                 return index;
             }
         }
-        return -1;
+        return 0;
+
     }
 
     // method that adds the value to the StringHash
@@ -91,10 +105,26 @@ public class StringHash {
         int x = getSize();
         // simple for loop to populate array until hash map can be created
         for(int i = 0; i < x; i++){
-                if (hash[i] == "<EMPTY>"){
+                if (hash[i].equals("<EMPTY>")){
                     hash[i] = data;
                     System.out.println("Adding " + "\"" + data + "\" -> " + i);
                     return true;
+                }
+                else if(!(hash[i].equals("<EMPTY>"))){
+                    int doubleHash = doubleHash(data);
+                    int j = 0;
+                    if (j == 0){
+                    hash[doubleHash] = data;
+                    System.out.print("Adding " + "\"" + data + "\"");
+                    j++;
+                    }
+                    else if (i != doubleHash){
+                        System.out.print(" -> " + i);
+                    }
+                    else{
+                    System.out.println(" -> " + doubleHash);
+                    return true;
+                    }
                 }
             }
         return false;
