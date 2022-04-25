@@ -86,7 +86,7 @@ public class StringHash {
         for (int i = 0; i < data.length(); i++){
             stringHash = (stringHash * multiplier) + string[i];
         }
-        stringHash = stringHash % x;
+        // stringHash = stringHash % x;
 
         for (int j = 0; j < x; j++){
             if (hash[j].equals("<EMPTY>")){
