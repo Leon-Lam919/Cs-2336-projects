@@ -19,7 +19,6 @@ public class StringHash {
     public void setRelativePrime(int relativePrime){
         this.relativePrime = relativePrime;
     }
-
     
     // size getter
     public int getSize(){
@@ -40,7 +39,6 @@ public class StringHash {
     public int getRelativePrime() {
         return relativePrime;
     }
-
 
     // constructor StringHash method
     public StringHash(int size, int initialvalue, int hashMultiplier, int relativePrime){
@@ -64,34 +62,39 @@ public class StringHash {
     int hashMultiplicative(String data){
         int stringHash = getInitialvalue();
         int multiplier = getHashMultiplier();
+        int prime = getRelativePrime();
         char[] string = data.toCharArray();
         int x = getSize();
 
         // using a for loop, will take the string and add it to the hash val
+        // if the string when hashed can be placed into that index, do so
+        // else, add the prime part into the function to return a new index, or until no collision
         for (int i = 0; i < data.length(); i++){
             stringHash = (stringHash * multiplier) + string[i];
         }
-        return stringHash % x;
+        for (int i = 0; i < x; i++){
+            if (hash[stringHash].equals("<EMPTY>")){
+                return stringHash % x;
+            }
+            else if (!hash[stringHash].equals("<EMPTY>")){
+                int index = ((stringHash % x) + i*(prime - (stringHash % prime)));
+                return index;
+            }
+        }
+        return -1;
     }
 
     // method that adds the value to the StringHash
     // adds strings according to the hash table val
     // TODO: needs to return false/ failed if it cannot be added to list
     boolean add(String data){
-
         int x = getSize();
         // simple for loop to populate array until hash map can be created
         for(int i = 0; i < x; i++){
-                if (hash[i].equals("<EMPTY>")){
-                    int n = hashMultiplicative(data);
-                    hash[n] = data;
-                    System.out.println("Adding " + "\"" + data + "\" -> " + n);
+                if (hash[i] == "<EMPTY>"){
+                    hash[i] = data;
+                    System.out.println("Adding " + "\"" + data + "\" -> " + i);
                     return true;
-                }
-                else if (!hash[i].equals("<EMPTY>")){
-                    int n = hashMultiplicative(data);
-                    hash[n+1] = data;
-                    System.out.println("Adding " + "\"" + data + "\" ->" + (n-1) + n);
                 }
             }
         return false;
@@ -105,7 +108,7 @@ public class StringHash {
         int x = getSize();
         for (int i = 0; i < x; i++){
             if (hash[i].equals(data)){
-                System.out.println("Searching \"" + data + "\" ->" + i + " TRUE");
+                System.out.println("Searching \"" + data + "\" -> " + i + " TRUE");
                 return true;
             }
         }
@@ -117,6 +120,14 @@ public class StringHash {
     // TODO: if it is there, remove and return true
     // TODO: relist the spot as removed and not empty or filled
     boolean remove(String data){
+        int x = getSize();
+        for (int i = 0; i < x; i++){
+            if (hash[i].equals(data)){
+                System.out.println("Removing \"" + data +"\" -> " + i);
+                hash[i] = "<REMOVED>";
+                return true;
+            }
+        }
         return false;
     }
 
@@ -133,6 +144,13 @@ public class StringHash {
     // TODO: needs to double the size of the array
     // TODO: rehash the values inside the array to the correct spot
     void resize(){
+        int x = getSize();
 
+        String[] temp = new String [x*2];
+
+        for (int i = 0; i < x; i++){
+            hash[i] = temp[i];
+            hash[i*2] = temp[i];
+        }
     }
 }
