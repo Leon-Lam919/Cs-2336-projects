@@ -57,46 +57,44 @@ public class StringHash {
         setRelativePrime(relativePrime);
     }
 
-    // method that will take the initial val and the multiplier and run through the string and find
-    // the hash val of it
-    int hashMultiplicative(String data){
+    int multiplicativeHash(String data){
         int stringHash = getInitialvalue();
         int multiplier = getHashMultiplier();
         char[] string = data.toCharArray();
         int x = getSize();
 
-        // using a for loop, will take the string and add it to the hash val
-        // returns the string hash % table which is the index to put the string into
+        // turns string to stringHash value
         for (int i = 0; i < data.length(); i++){
-            stringHash = (stringHash * multiplier) + string[i];
+            stringHash = (stringHash + multiplier) + string[i];
         }
+
+        // takes the abs value and returns that mod the table size
+        stringHash = Math.abs(stringHash);
         return stringHash % x;
     }
 
+    // method that will take the initial val and the multiplier and run through the string and find
+    // the hash val of it
     int doubleHash(String data){
-        int stringHash = getInitialvalue();
-        int multiplier = getHashMultiplier();
+        //int stringHash = getInitialvalue();
+        //int multiplier = getHashMultiplier();
         int prime = getRelativePrime();
-        char[] string = data.toCharArray();
+        //char[] string = data.toCharArray();
         int x = getSize();
 
-        //String that could not be hashed, now must be double hashed
+        // calls multiplicativeHash func and gets the string has of it to double hash
+        int stringHash = multiplicativeHash(data);
 
-        // for loop that will hash the string first
-        for (int i = 0; i < data.length(); i++){
-            stringHash = (stringHash * multiplier) + string[i];
-        }
-        // stringHash = stringHash % x;
-
+        // double hash
         for (int j = 0; j < x; j++){
-            if (hash[j].equals("<EMPTY>")){
-                int index = ((stringHash % x) + j*(prime - (stringHash % prime)));
+            if (!hash[j].equals("<EMPTY>")){
+                int index = (((stringHash) + j*(prime - (stringHash % prime))) % x);
                 return index;
             }
         }
         return 0;
-
     }
+
 
     // method that adds the value to the StringHash
     // adds strings according to the hash table val
@@ -106,26 +104,27 @@ public class StringHash {
         // simple for loop to populate array until hash map can be created
         for(int i = 0; i < x; i++){
                 if (hash[i].equals("<EMPTY>")){
-                    hash[i] = data;
-                    System.out.println("Adding " + "\"" + data + "\" -> " + i);
+                    int hashT = doubleHash(data);
+                    hash[hashT] = data;
+                    System.out.println("Adding " + "\"" + data + "\" -> " + hashT);
                     return true;
                 }
-                else if(!(hash[i].equals("<EMPTY>"))){
-                    int doubleHash = doubleHash(data);
-                    int j = 0;
-                    if (j == 0){
-                    hash[doubleHash] = data;
-                    System.out.print("Adding " + "\"" + data + "\"");
-                    j++;
-                    }
-                    else if (i != doubleHash){
-                        System.out.print(" -> " + i);
-                    }
-                    else{
-                    System.out.println(" -> " + doubleHash);
-                    return true;
-                    }
-                }
+                // else if(!(hash[i].equals("<EMPTY>"))){
+                //     int doubleHash = doubleHash(data);
+                //     int j = 0;
+                //     if (j == 0){
+                //     hash[doubleHash] = data;
+                //     System.out.print("Adding " + "\"" + data + "\"");
+                //     j++;
+                //     }
+                //     else if (i != doubleHash){
+                //         System.out.print(" -> " + i);
+                //     }
+                //     else{
+                //     System.out.println(" -> " + doubleHash);
+                //     return true;
+                //     }
+                // }
             }
         return false;
     }
