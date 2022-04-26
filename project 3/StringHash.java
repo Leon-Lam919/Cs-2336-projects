@@ -65,7 +65,7 @@ public class StringHash {
 
         // turns string to stringHash value
         for (int i = 0; i < data.length(); i++){
-            stringHash = (stringHash * multiplier) + string[i];
+            stringHash = (stringHash * multiplier) + data.charAt(i);
         }
 
         // takes the abs value and returns that mod the table size
