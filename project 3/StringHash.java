@@ -65,7 +65,7 @@ public class StringHash {
 
         // turns string to stringHash value
         for (int i = 0; i < data.length(); i++){
-            stringHash = (stringHash * multiplier) + data.charAt(i);
+            stringHash = (stringHash * multiplier) + string[i];
         }
 
         // takes the abs value and returns that mod the table size
@@ -102,18 +102,16 @@ public class StringHash {
                 return true;
             }
             else if (!hash[hashT].equals("<EMPTY>")){
-                int hasht = doubleHash(hashT, i);
-                if (hash[hasht].equals("<EMPTY>")){
-                    hash[hasht] = data;
-                    System.out.println("Adding " + "\"" + data + "\" -> " + hashT);
+                int hashD = doubleHash(hashT, i);
+                if (hash[hashD].equals("<EMPTY>")){
+                    hash[hashD] = data;
+                    System.out.println("Adding " + "\"" + data + "\" -> " + hashD);
                     return true;
                 }
-                else{
-                    i++;
-                }
             }
+            i++;
         }
-        return true;
+        return false;
                 // else if(!(hash[i].equals("<EMPTY>"))){
                 //     int doubleHash = doubleHash(data);
                 //     int j = 0;
