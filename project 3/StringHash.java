@@ -65,7 +65,7 @@ public class StringHash {
 
         // turns string to stringHash value
         for (int i = 0; i < data.length(); i++){
-            stringHash = (stringHash + multiplier) + string[i];
+            stringHash = (stringHash * multiplier) + data.charAt(i);
         }
 
         // takes the abs value and returns that mod the table size
@@ -73,42 +73,47 @@ public class StringHash {
         return stringHash % x;
     }
 
-    // method that will take the initial val and the multiplier and run through the string and find
-    // the hash val of it
-    int doubleHash(String data){
+    // method that will take the multiplicative hash and an i value that starts at 0 and increments 
+    // for each collision
+    int doubleHash(int mulitHash, int i){
         //int stringHash = getInitialvalue();
         //int multiplier = getHashMultiplier();
         int prime = getRelativePrime();
         //char[] string = data.toCharArray();
         int x = getSize();
 
-        // calls multiplicativeHash func and gets the string has of it to double hash
-        int stringHash = multiplicativeHash(data);
-
         // double hash
-        for (int j = 0; j < x; j++){
-            if (!hash[j].equals("<EMPTY>")){
-                int index = (((stringHash) + j*(prime - (stringHash % prime))) % x);
-                return index;
-            }
-        }
-        return 0;
+        int index = (((mulitHash) + i*(prime - (mulitHash % prime))) % x);
+        return index;
     }
-
 
     // method that adds the value to the StringHash
     // adds strings according to the hash table val
     // TODO: needs to return false/ failed if it cannot be added to list
     boolean add(String data){
         int x = getSize();
+        int i = 0;
         // simple for loop to populate array until hash map can be created
-        for(int i = 0; i < x; i++){
-                if (hash[i].equals("<EMPTY>")){
-                    int hashT = doubleHash(data);
-                    hash[hashT] = data;
+        int hashT = multiplicativeHash(data);
+        while(i != x){
+            if (hash[hashT].equals("<EMPTY>")){
+                hash[hashT] = data;
+                System.out.println("Adding " + "\"" + data + "\" -> " + hashT);
+                return true;
+            }
+            else if (!hash[hashT].equals("<EMPTY>")){
+                int hasht = doubleHash(hashT, i);
+                if (hash[hasht].equals("<EMPTY>")){
+                    hash[hasht] = data;
                     System.out.println("Adding " + "\"" + data + "\" -> " + hashT);
                     return true;
                 }
+                else{
+                    i++;
+                }
+            }
+        }
+        return true;
                 // else if(!(hash[i].equals("<EMPTY>"))){
                 //     int doubleHash = doubleHash(data);
                 //     int j = 0;
@@ -125,8 +130,6 @@ public class StringHash {
                 //     return true;
                 //     }
                 // }
-            }
-        return false;
     }
 
        // method that sees if the StringHash contains the value,
