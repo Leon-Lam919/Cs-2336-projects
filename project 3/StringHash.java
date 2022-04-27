@@ -110,8 +110,9 @@ public class StringHash {
                         System.out.print(" -> " + hashD);
                         continue;
                     }
-                    else{
+                    else if (hash[hashD].equals("<EMPTY>")){
                         hash[hashD] = data;
+                        System.out.println();
                         return true;
                     }
                 }
