@@ -85,6 +85,8 @@ public class StringHash {
 
         // double hash
         int index = (((mulitHash) + i*(prime - (mulitHash % prime))) % x);
+        System.out.println("stringHash: " + mulitHash);
+        System.out.println(i);
         return index;
     }
 
@@ -96,14 +98,14 @@ public class StringHash {
         int i = 0;
         // simple for loop to populate array until hash map can be created
         int hashT = multiplicativeHash(data);
+        int hashD = doubleHash(hashT, i);
         while(i != x){
-            if (hash[hashT].equals("<EMPTY>")){
-                hash[hashT] = data;
-                System.out.println("Adding " + "\"" + data + "\" -> " + hashT);
+            if (hash[hashD].equals("<EMPTY>")){
+                hash[hashD] = data;
+                System.out.println("Adding " + "\"" + data + "\" -> " + hashD);
                 return true;
             }
             else if (!hash[hashT].equals("<EMPTY>")){
-                int hashD = doubleHash(hashT, i);
                 if (hash[hashD].equals("<EMPTY>")){
                     hash[hashD] = data;
                     System.out.println("Adding " + "\"" + data + "\" -> " + hashD);
