@@ -91,43 +91,47 @@ public class StringHash {
     // TODO: needs to return false/ failed if it cannot be added to list
     boolean add(String data){
         int x = getSize();
-        int i = 0;
+        int i = 0, count = 0;
         // simple for loop to populate array until hash map can be created
         int hashT = multiplicativeHash(data);
         int hashD = doubleHash(hashT, i);
         // while is used for if the string traverses the entire table and cannot find a spot to insert
-        while(i != x-1){
+        System.out.print("Adding " + "\"" + data + "\"");
+        while(i != x){
             // if the first double hash = success, insert
             if (hash[hashD].equals("<EMPTY>")){
-                hash[hashD] = data;
-                System.out.println("Adding " + "\"" + data + "\" -> " + hashD);
-                return true;
+                    hash[hashD] = data;
+                    System.out.println(" -> " + hashD);
+                    return true;
             }
             // if the index found by the double hashing is not empty, then increase collision by 1 and test again
             else if (!hash[hashD].equals("<EMPTY>")){
-                System.out.print("Adding " + "\"" + data + "\" -> " + hashD);
+                if (count == 0){
+                System.out.print(" -> " + hashD);
+                count++;
+                }
                 i++;
                 hashD = doubleHash(hashT, i);
-                // if the index after setting collision to 1 is empty, then put data into that and 
+                // if the index after setting collision to 1 is empty, then print its empty and 
                 if (hash[hashD].equals("<EMPTY>")){
+                    hash[hashD] = data;
+                    System.out.println(" -> " + hashD);
+                    return true;
+                }
+                // if i is equal to the table size then fail
+                else if (i == x){
+                    System.out.println(" -> FAILED");
+                    return false;
+                }
+                // if the hashD is not empty then try again
+                else if (!hash[hashD].equals("<EMPTY>")){
                     System.out.print(" -> " + hashD);
-                    if (!hash[hashD].equals("<EMPTY>")){
-                        System.out.print(" -> " + hashD);
-                        continue;
-                    }
-                    else if (hash[hashD].equals("<EMPTY>")){
-                        hash[hashD] = data;
-                        System.out.println(" -> " + hashD);
-                        return true;
-                    }
+                    continue;
                 }
             }
-            // prints out that the string serached the full table and cannot be inserted anywhere
-            else {
-                System.out.println(" -> FAILED");
-                return false;
-            }
         }
+
+        // prints out that the string serached the full table and cannot be inserted anywhere
         return false;
     }
 
@@ -137,10 +141,42 @@ public class StringHash {
        // TODO: if it is found, return and print out true
        boolean contains(String data){
         int x = getSize();
-        for (int i = 0; i < x; i++){
-            if (hash[i].equals(data)){
-                System.out.println("Searching \"" + data + "\" -> " + i + " TRUE");
-                return true;
+        int i = 0, count = 0;
+        // simple for loop to populate array until hash map can be created
+        int hashT = multiplicativeHash(data);
+        int hashD = doubleHash(hashT, i);
+        // while is used for if the string traverses the entire table and cannot find a spot to insert
+        System.out.print("Searching for " + "\"" + data + "\"");
+        while(i != x){
+            // if the first double hash = success, return that it has been found
+            if (hash[hashD].equals(data)){
+                    hash[hashD] = data;
+                    System.out.println(" -> " + hashD);
+                    return true;
+            }
+            // if the index found by the double hashing is not found, then increase collision by 1 and test again
+            else if (!hash[hashD].equals(data)){
+                if (count == 0){
+                System.out.print(" -> " + hashD);
+                count++;
+                }
+                i++;
+                hashD = doubleHash(hashT, i);
+                // if the index after setting collision to 1 equals the data given, then print and return true
+                if (hash[hashD].equals(data)){
+                    System.out.println(" -> " + hashD);
+                    return true;
+                }
+                // if it goes through the entire table and cannot find it, then print FAILED and return false
+                else if (i == x){
+                    System.out.println(" -> FAILED");
+                    return false;
+                }
+                // if the value in the table does not equal data, then print and try again
+                else if (!hash[hashD].equals(data)){
+                    System.out.print(" -> " + hashD);
+                    continue;
+                }
             }
         }
         return false;
@@ -152,11 +188,43 @@ public class StringHash {
     // TODO: relist the spot as removed and not empty or filled
     boolean remove(String data){
         int x = getSize();
-        for (int i = 0; i < x; i++){
-            if (hash[i].equals(data)){
-                System.out.println("Removing \"" + data +"\" -> " + i);
-                hash[i] = "<REMOVED>";
-                return true;
+        int i = 0, count = 0;
+        // simple for loop to populate array until hash map can be created
+        int hashT = multiplicativeHash(data);
+        int hashD = doubleHash(hashT, i);
+        // while is used for if the string traverses the entire table and cannot find a spot to insert
+        System.out.print("Removing " + "\"" + data + "\"");
+        while(i != x){
+            // if the first double hash = success, return that it has been found
+            if (hash[hashD].equals(data)){
+                    hash[hashD] = "<REMOVED>";
+                    System.out.println(" -> " + hashD);
+                    return true;
+            }
+            // if the index found by the double hashing is not found, then increase collision by 1 and test again
+            else if (!hash[hashD].equals(data)){
+                if (count == 0){
+                System.out.print(" -> " + hashD);
+                count++;
+                }
+                i++;
+                hashD = doubleHash(hashT, i);
+                // if the index after setting collision to 1 equals the data given, then print and return true
+                if (hash[hashD].equals(data)){
+                    hash[hashD] = "<REMOVED>";
+                    System.out.println(" -> " + hashD);
+                    return true;
+                }
+                // if it goes through the entire table and cannot find it, then print FAILED and return false
+                else if (i == x){
+                    System.out.println(" -> FAILED");
+                    return false;
+                }
+                // if the value in the table does not equal data, then print and try again
+                else if (!hash[hashD].equals(data)){
+                    System.out.print(" -> " + hashD);
+                    continue;
+                }
             }
         }
         return false;
