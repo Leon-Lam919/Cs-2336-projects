@@ -95,15 +95,19 @@ public class StringHash {
         // simple for loop to populate array until hash map can be created
         int hashT = multiplicativeHash(data);
         int hashD = doubleHash(hashT, i);
+        // while is used for if the string traverses the entire table and cannot find a spot to insert
         while(i != x-1){
+            // if the first double hash = success, insert
             if (hash[hashD].equals("<EMPTY>")){
                 hash[hashD] = data;
                 System.out.println("Adding " + "\"" + data + "\" -> " + hashD);
                 return true;
             }
+            // if the index found by the double hashing is not empty, then increase collision by 1 and test again
             else if (!hash[hashD].equals("<EMPTY>")){
                 i++;
                 hashD = doubleHash(hashT, i);
+                // if the index after setting collision to 1 is empty 
                 if (hash[hashD].equals("<EMPTY>")){
                     System.out.print("Adding " + "\"" + data + "\" -> " + hashD);
                     if (!hash[hashD].equals("<EMPTY>")){
@@ -116,6 +120,11 @@ public class StringHash {
                         return true;
                     }
                 }
+            }
+            // prints out that the string serached the full table and cannot be inserted anywhere
+            else {
+                System.out.println(" -> FAILED");
+                return false;
             }
         }
         return false;
