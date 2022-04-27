@@ -244,12 +244,16 @@ public class StringHash {
     // TODO: rehash the values inside the array to the correct spot
     void resize(){
         int x = getSize();
+        x = x*2;
 
-        String[] temp = new String [x*2];
+        String[] temp = new String [x];
 
         for (int i = 0; i < x; i++){
-            hash[i] = temp[i];
-            hash[i*2] = temp[i];
+            temp[i] = hash[i];
+            if (temp[i].equals(null)){
+                temp[i] = "<EMPTY>";
+            }
+            System.out.println(temp[i]);
         }
     }
 }
