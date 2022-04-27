@@ -70,6 +70,7 @@ public class StringHash {
 
         // takes the abs value and returns that mod the table size
         stringHash = Math.abs(stringHash);
+        System.out.println(stringHash + " mod " + x + " is returning " + stringHash % x);
         return stringHash % x;
     }
 
