@@ -105,18 +105,19 @@ public class StringHash {
             }
             // if the index found by the double hashing is not empty, then increase collision by 1 and test again
             else if (!hash[hashD].equals("<EMPTY>")){
+                System.out.print("Adding " + "\"" + data + "\" -> " + hashD);
                 i++;
                 hashD = doubleHash(hashT, i);
-                // if the index after setting collision to 1 is empty 
+                // if the index after setting collision to 1 is empty, then put data into that and 
                 if (hash[hashD].equals("<EMPTY>")){
-                    System.out.print("Adding " + "\"" + data + "\" -> " + hashD);
+                    System.out.print(" -> " + hashD);
                     if (!hash[hashD].equals("<EMPTY>")){
                         System.out.print(" -> " + hashD);
                         continue;
                     }
                     else if (hash[hashD].equals("<EMPTY>")){
                         hash[hashD] = data;
-                        System.out.println();
+                        System.out.println(" -> " + hashD);
                         return true;
                     }
                 }
