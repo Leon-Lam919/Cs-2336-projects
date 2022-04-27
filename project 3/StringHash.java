@@ -60,7 +60,6 @@ public class StringHash {
     int multiplicativeHash(String data){
         int stringHash = getInitialvalue();
         int multiplier = getHashMultiplier();
-        char[] string = data.toCharArray();
         int x = getSize();
 
         // turns string to stringHash value
@@ -70,7 +69,6 @@ public class StringHash {
 
         // takes the abs value and returns that mod the table size
         stringHash = Math.abs(stringHash);
-        System.out.println(stringHash + " mod " + x + " is returning " + stringHash % x);
         return stringHash % x;
     }
 
@@ -84,9 +82,7 @@ public class StringHash {
         int x = getSize();
 
         // double hash
-        int index = (((mulitHash) + i*(prime - (mulitHash % prime))) % x);
-        System.out.println("stringHash: " + mulitHash);
-        System.out.println(i);
+        int index = (((mulitHash % x) + i*(prime - (mulitHash % prime))) % x);
         return index;
     }
 
@@ -99,38 +95,29 @@ public class StringHash {
         // simple for loop to populate array until hash map can be created
         int hashT = multiplicativeHash(data);
         int hashD = doubleHash(hashT, i);
-        while(i != x){
+        while(i != x-1){
             if (hash[hashD].equals("<EMPTY>")){
                 hash[hashD] = data;
                 System.out.println("Adding " + "\"" + data + "\" -> " + hashD);
                 return true;
             }
-            else if (!hash[hashT].equals("<EMPTY>")){
+            else if (!hash[hashD].equals("<EMPTY>")){
+                i++;
+                hashD = doubleHash(hashT, i);
                 if (hash[hashD].equals("<EMPTY>")){
-                    hash[hashD] = data;
-                    System.out.println("Adding " + "\"" + data + "\" -> " + hashD);
-                    return true;
+                    System.out.print("Adding " + "\"" + data + "\" -> " + hashD);
+                    if (!hash[hashD].equals("<EMPTY>")){
+                        System.out.print(" -> " + hashD);
+                        continue;
+                    }
+                    else{
+                        hash[hashD] = data;
+                        return true;
+                    }
                 }
             }
-            i++;
         }
         return false;
-                // else if(!(hash[i].equals("<EMPTY>"))){
-                //     int doubleHash = doubleHash(data);
-                //     int j = 0;
-                //     if (j == 0){
-                //     hash[doubleHash] = data;
-                //     System.out.print("Adding " + "\"" + data + "\"");
-                //     j++;
-                //     }
-                //     else if (i != doubleHash){
-                //         System.out.print(" -> " + i);
-                //     }
-                //     else{
-                //     System.out.println(" -> " + doubleHash);
-                //     return true;
-                //     }
-                // }
     }
 
        // method that sees if the StringHash contains the value,
