@@ -266,7 +266,7 @@ public class StringHash {
         }
         
         while (q != x){
-            
+            System.out.println("NERD");
         }
         
 
