@@ -88,7 +88,6 @@ public class StringHash {
 
     // method that adds the value to the StringHash
     // adds strings according to the hash table val
-    // TODO: needs to return false/ failed if it cannot be added to list
     boolean add(String data){
         int x = getSize();
         int i = 0, count = 0;
@@ -135,10 +134,7 @@ public class StringHash {
         return false;
     }
 
-       // method that sees if the StringHash contains the value,
-       // TODO: if after traversing all of the vals in the array, val cannot be found, 
-       // TODO: return failed and false
-       // TODO: if it is found, return and print out true
+       // method that sees if the StringHash contains the value
        boolean contains(String data){
         int x = getSize();
         int i = 0, count = 0;
@@ -146,12 +142,13 @@ public class StringHash {
         int hashT = multiplicativeHash(data);
         int hashD = doubleHash(hashT, i);
         // while is used for if the string traverses the entire table and cannot find a spot to insert
-        System.out.print("Searching for " + "\"" + data + "\"");
+        System.out.print("Searching " + "\"" + data + "\"");
         while(i != x){
             // if the first double hash = success, return that it has been found
             if (hash[hashD].equals(data)){
                     hash[hashD] = data;
                     System.out.println(" -> " + hashD);
+                    System.out.println("TRUE");
                     return true;
             }
             // if the index found by the double hashing is not found, then increase collision by 1 and test again
@@ -162,14 +159,20 @@ public class StringHash {
                 }
                 i++;
                 hashD = doubleHash(hashT, i);
+                
+                if(hash[hashD].equals("<EMPTY>")){
+                    continue;
+                }
                 // if the index after setting collision to 1 equals the data given, then print and return true
-                if (hash[hashD].equals(data)){
+                else if (hash[hashD].equals(data)){
                     System.out.println(" -> " + hashD);
+                    System.out.println("TRUE");
                     return true;
                 }
                 // if it goes through the entire table and cannot find it, then print FAILED and return false
                 else if (i == x){
                     System.out.println(" -> FAILED");
+                    System.out.println("FALSE");
                     return false;
                 }
                 // if the value in the table does not equal data, then print and try again
@@ -182,10 +185,7 @@ public class StringHash {
         return false;
     }
     
-    // TODO: will remove the string from the array
-    // TODO: if not there, will return failed
-    // TODO: if it is there, remove and return true
-    // TODO: relist the spot as removed and not empty or filled
+    // this method will find the string that is asked in input and remove it
     boolean remove(String data){
         int x = getSize();
         int i = 0, count = 0;
@@ -218,6 +218,7 @@ public class StringHash {
                 // if it goes through the entire table and cannot find it, then print FAILED and return false
                 else if (i == x){
                     System.out.println(" -> FAILED");
+                    System.out.println("FALSE");
                     return false;
                 }
                 // if the value in the table does not equal data, then print and try again
@@ -244,16 +245,33 @@ public class StringHash {
     // TODO: rehash the values inside the array to the correct spot
     void resize(){
         int x = getSize();
+        int q = 0;
+        int hashNum;
+
+        String[] temp = new String [x*2];
+
+        // copies vals from hash to the temp array
+        for(int i = 0; i < x; i++){
+            temp[i] = hash[i];
+        }
+
+        // double table size
         x = x*2;
 
-        String[] temp = new String [x];
-
-        for (int i = 0; i < x; i++){
-            temp[i] = hash[i];
-            if (temp[i].equals(null)){
-                temp[i] = "<EMPTY>";
+        // for loop that will fill all null indexes with empty
+        for (int k = 0; k < x; k++){
+            if (temp[k] == null){
+                temp[k] = "<EMPTY>";
             }
-            System.out.println(temp[i]);
+        }
+        
+        while (q != x){
+            
+        }
+        
+
+        for (int j = 0; j < x; j++){
+            System.out.println(j + " : " + temp[j]);
         }
     }
 }
