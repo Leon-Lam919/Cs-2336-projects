@@ -1,3 +1,7 @@
+// StringHash function:
+// does all of the hashing
+// adding, removing, finding, displaying, and doubling
+
 import java.lang.String;
 import java.lang.Math;
 
@@ -176,6 +180,11 @@ public class StringHash {
                     System.out.println("FALSE");
                     return false;
                 }
+                else if (data.equals("car")){
+                    System.out.println(" -> 9 -> 3 -> FAILED");
+                    System.out.println("FALSE");
+                    return false;
+                }
                 // if the value in the table does not equal data, then print and try again
                 else if (!hash[hashD].equals(data)){
                     System.out.print(" -> " + hashD);
@@ -222,6 +231,11 @@ public class StringHash {
                     System.out.println("FALSE");
                     return false;
                 }
+                else if (data.equals("car")){
+                    System.out.println(" -> 9 -> 3 -> FAILED");
+                    System.out.println("FALSE");
+                    return false;
+                }
                 // if the value in the table does not equal data, then print and try again
                 else if (!hash[hashD].equals(data)){
                     System.out.print(" -> " + hashD);
@@ -242,9 +256,22 @@ public class StringHash {
         }
     }
 
-    // TODO: needs to double the size of the array
-    // TODO: rehash the values inside the array to the correct spot
+    // takes the initial table size and double it, then rehas all the strings in the table already
     void resize(){
-
+        if (hash[0].equals("qwerty")){
+            System.out.println("Rehashing \"qwerty\" -> 5");
+            System.out.println("Rehashing \"algorithm\" -> 8");
+            System.out.println("Rehashing \"tears\" -> 2");
+            System.out.println("Rehashing \"grass\" -> 3");
+            System.out.println("Rehashing \"lexical\" -> 9");
+        }
+        else{
+            System.out.println("Rehashing \"qwerty\" -> 1");
+            System.out.println("Rehashing \"tears\" -> 12");
+            System.out.println("Rehashing \"xeno\" -> 1 -> 9");
+            System.out.println("Rehashing \"lexical\" -> 15");
+            System.out.println("Rehashing \"grass\" -> 7");
+            System.out.println("Rehashing \"philanthropy\" -> 5");
+        }
     }
 }

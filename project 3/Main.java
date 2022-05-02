@@ -1,3 +1,10 @@
+// driver class
+// Leon Lam
+// CS 2336.002
+// prof: Gordon Arnold
+// Due date: 5/4/2022
+// Date finished: 5/2/2022
+
 import java.util.Scanner;
 
 public class Main{
