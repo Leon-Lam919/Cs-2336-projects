@@ -1,4 +1,5 @@
 import java.lang.String;
+import java.lang.Math;
 
 public class StringHash {
     // setters for initialval, hash multiplier and relative prime
@@ -180,9 +181,6 @@ public class StringHash {
                     System.out.print(" -> " + hashD);
                     continue;
                 }
-                else if (hash[hashD + 1].equals("<EMPTY>")){
-                    System.out.print(" -> " + hashD);
-                }
             }
         }
         return false;
@@ -247,52 +245,6 @@ public class StringHash {
     // TODO: needs to double the size of the array
     // TODO: rehash the values inside the array to the correct spot
     void resize(){
-        int x = getSize();
-        int i = 0, count = 0;
 
-        StringHash SH = new StringHash(x, initialvalue, hashMultiplier, relativePrime);
-
-        // new array that is double size of original table
-        String[] temp = new String [x*2];
-
-        // double table size
-        x = x*2;
-
-        // for loop that will fill all null indexes with empty
-        for (int k = 0; k < x; k++){
-            temp[k] = "<EMPTY>";
-        }
-
-        int hashT = multiplicativeHash(hash[i]);
-        int hashD = doubleHash(hashT, i);
-        // while is used for if the string traverses the entire table and cannot find a spot to insert
-        while(i != x){
-            // if the first double hash = success, return that it has been found
-            if (temp[hashD].equals("<EMPTY>")){
-                temp[hashD] = hash[i];
-                System.out.print("Rehashing " + "\"" + hash[i] + "\" -> " + hashD);
-                continue;
-            }
-            // if the index found by the double hashing is not found, then increase collision by 1 and test again
-            else if (!temp[hashD].equals("<EMPTY>")){
-                if (count == 0){
-                System.out.print(" -> " + hashD);
-                count++;
-                }
-                i++;
-                hashD = doubleHash(hashT, i);
-                // if the index after setting collision to 1 equals the data given, then print and return true
-                if (temp[hashD].equals(hash[i])){
-                    temp[hashD] = hash[i];
-                    System.out.println(" -> " + hashD);
-                    continue;
-                }
-                // if the value in the table does not equal data, then print and try again
-                else if (!temp[hashD].equals(hash[i])){
-                    System.out.print(" -> " + hashD);
-                    continue;
-                }
-            }
-        }
     }
 }
